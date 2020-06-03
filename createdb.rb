@@ -21,6 +21,16 @@ DB.create_table! :bookings do
   foreign_key :flight_id
   foreign_key :user_id
   String :seat_chosen
+  Boolean :taken_1a
+  Boolean :taken_1b
+  Boolean :taken_2a
+  Boolean :taken_2b
+  Boolean :taken_3a
+  Boolean :taken_3b
+  Boolean :taken_4a
+  Boolean :taken_4b
+
+
 end
 DB.create_table! :users do
   primary_key :id

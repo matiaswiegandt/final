@@ -47,7 +47,7 @@ end
 get "/flights/:id/bookings/new" do
     @flight = flights_table.where(:id => params["id"]).to_a[0]
     #@users_table = users_table
-    @bookings = bookings_table.where(:flight_id => params["id"]).to_a
+    #@bookings = bookings_table.where(:flight_id => params["id"]).to_a
     view "new_booking"
 end
 
@@ -55,7 +55,15 @@ end
 post "/flights/:id/bookings/create" do
     bookings_table.insert(:flight_id => params["id"],
                        :user_id => @current_user[:id],
-                       :seat_chosen => params["seat_chosen"])
+                       :seat_chosen => params["seat_chosen"],
+                       :taken_1a => params["taken_1a"],
+                       :taken_1b => params["taken_1b"],
+                       :taken_2a => params["taken_2a"],
+                       :taken_2b => params["taken_2b"],
+                       :taken_3a => params["taken_3a"],
+                       :taken_3b => params["taken_3b"],
+                       :taken_4a => params["taken_4a"],
+                       :taken_4b => params["taken_4b"])
     #@flight = flights_table.where(:id => params["id"]).to_a[0]
     @bookings = bookings_table.where(:flight_id => params["id"]).to_a
     view "create_booking"

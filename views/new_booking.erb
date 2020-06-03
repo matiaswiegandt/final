@@ -10,68 +10,99 @@
 
 <div class="row">
 <div class="col">
-<!--#IF statement de ocupación de asiento...--!>
-<p1>1a</p1>
-</div>
-<div class="col">
-<p1>1b</p1>
-</div>
-</div>
-
-<div class="row">
-<div class="col">
-<p1>2a</p1>
-</div>
-<div class="col">
-<p1>2b</p1>
-</div>
-</div>
-
-<div class="row">
-<div class="col">
-<p1>3a</p1>
-</div>
-<div class="col">
-<p1>3b</p1>
-</div>
-</div>
-
-<div class="row">
-<div class="col">
-<p1>4a</p1>
-</div>
-<div class="col">
-<p1>4b</p1>
-</div>
-</div>
-
-</div>
-<div class="col">
-<p1>placeholder</p1>
-</div>
-</div>
-</div>
-
-
-<!--#De aqui para abajo es lo que sirve de la selección original--!>
-<div class="row">
-<div class="col">
 <form action="/flights/<%= @flight[:id] %>/bookings/create" method="POST">
-  <div class="form-group">
-    <label>Seat selection</label>
-    <select class="form-control" name="seat_chosen">
-      <option value="1a">1a</option>
-      <option value="1b">1b</option>
-      <option value="2a">2a</option>
-      <option value="2b">2b</option>
-      <option value="3a">3a</option>
-      <option value="3b">3b</option>
-      <option value="4a">4a</option>
-      <option value="4b">4b</option>
-    </select>
+
+<!--#Desde aqui el bloque de rows en el avión     ROW 1--!>
+<div class="row">
+  <div class="col">
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" name= "taken_1a" id="taken_1a">
+  <label class="form-check-label" for="taken_1a">
+    1a
+  </label>
   </div>
+  </div>
+
+  <div class="col">
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" name= "taken_1b" id="taken_1b">
+  <label class="form-check-label" for="taken_1b">
+    1b
+  </label>
+  </div>
+  </div>
+  </div>
+<!--#Hasta aqui el bloque de rows en el avión--!>
+
+<!--#Desde aqui el bloque de rows en el avión     ROW 2--!>
+<div class="row">
+  <div class="col">
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" name= "taken_2a" id="taken_2a">
+  <label class="form-check-label" for="taken_2a">
+    2a
+  </label>
+  </div>
+  </div>
+
+  <div class="col">
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" name= "taken_2b" id="taken_2b">
+  <label class="form-check-label" for="taken_2b">
+    2b
+  </label>
+  </div>
+  </div>
+  </div>
+<!--#Hasta aqui el bloque de rows en el avión--!>
+
+<!--#Desde aqui el bloque de rows en el avión     ROW 3--!>
+<div class="row">
+  <div class="col">
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" name= "taken_3a" id="taken_3a">
+  <label class="form-check-label" for="taken_3a">
+    3a
+  </label>
+  </div>
+  </div>
+
+  <div class="col">
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" name= "taken_3b" id="taken_3b">
+  <label class="form-check-label" for="taken_3b">
+    3b
+  </label>
+  </div>
+  </div>
+  </div>
+<!--#Hasta aqui el bloque de rows en el avión--!>
+
+<!--#Desde aqui el bloque de rows en el avión     ROW 4--!>
+<div class="row">
+  <div class="col">
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" name= "taken_4a" id="taken_4a">
+  <label class="form-check-label" for="taken_4a">
+    4a
+  </label>
+  </div>
+  </div>
+
+  <div class="col">
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" name= "taken_4b" id="taken_4b">
+  <label class="form-check-label" for="taken_4b">
+    4b
+  </label>
+  </div>
+  </div>
+  </div>
+<!--#Hasta aqui el bloque de rows en el avión--!>
+
+
   <button type="submit" class="btn btn-primary">Book it!</button>
-</form>
+</form>  <!--#Hasta aqui la form de meter el asiento--!>
 </div>
 
 <div class="col">
