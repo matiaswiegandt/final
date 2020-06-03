@@ -1,0 +1,8 @@
+<h1>Select your flight</h1>
+
+<% for flight in @flights %>
+
+
+    <p><a href="/flights/<%= flight[:id] %>"><%= flight[:dep_time] %></a></p>
+    
+<% end %>

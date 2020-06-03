@@ -1,0 +1,29 @@
+<h1>Sign Up</h1>
+
+<form action="/users/create" method="POST">
+  <div class="form-group">
+    <label>Your name</label>
+    <input type="text" class="form-control" name="name">
+  </div>
+  <div class="form-group">
+    <label>Email address</label>
+    <input type="email" class="form-control" placeholder="name@example.com" name="email">
+  </div>
+  <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" name="password">
+  </div>
+<div class="form-group">
+    <label>Credit card number</label>
+    <input type="credit_number" class="form-control" name="credit_number">
+  </div>
+  <div class="form-group">
+    <label>Expiration date</label>
+    <input type="credit_exp_date" class="form-control" name="credit_exp_date">
+  </div>
+<div class="form-group">
+    <label>Security number</label>
+    <input type="credit_security" class="form-control" name="credit_security">
+  </div>
+  <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>
