@@ -18,7 +18,6 @@ after { puts; }                                                                 
 flights_table = DB.from(:flights)
 bookings_table = DB.from(:bookings)
 users_table = DB.from(:users)
-seats_table = DB.from(:seats)
 
 before do
     # SELECT * FROM users WHERE id = session[:user_id]
@@ -30,12 +29,36 @@ end
 get "/" do
     # before stuff runs
     @flights = flights_table.all
+    #@flight = flights_table.where(:id => params["id"]).to_a[0]
+    #@bookings = bookings_table.where(:flight_id => params["id"]).to_a
+    #@users_table = users_table
     view "flights" #Sends it to "flights" which is the erb(html) file of that screen
 end
 
-get "/flights/:id" do
-     @flight = flights_table.where(:id => params["id"]).to_a[0]
-    view "flight"
+# show a single flight
+#get "/flights/:id" do
+    #@users_table = users_table
+     #@flight = flights_table.where(:id => params["id"]).to_a[0]
+     #@bookings = bookings_table.where(:flight_id => params["id"]).to_a
+    #view "flight"
+#end
+
+# Form to create a new booking
+get "/flights/:id/bookings/new" do
+    @flight = flights_table.where(:id => params["id"]).to_a[0]
+    #@users_table = users_table
+    @bookings = bookings_table.where(:flight_id => params["id"]).to_a
+    view "new_booking"
+end
+
+# Receiving end of new booking form
+post "/flights/:id/bookings/create" do
+    bookings_table.insert(:flight_id => params["id"],
+                       :user_id => @current_user[:id],
+                       :seat_chosen => params["seat_chosen"])
+    #@flight = flights_table.where(:id => params["id"]).to_a[0]
+    @bookings = bookings_table.where(:flight_id => params["id"]).to_a
+    view "create_booking"
 end
 
 # Form to create a new user
@@ -84,5 +107,3 @@ end
 get "/logout" do
     view "logout"
 end
-
-

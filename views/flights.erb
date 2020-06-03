@@ -1,8 +1,19 @@
 <h1>Select your flight</h1>
 
-<% for flight in @flights %>
 
+        <% for flight in @flights %>
+<div class="container" style="margin-bottom: 25px; margin-top: 25px;">
+<div class="row">
+<div class="col"><%= flight[:flight_num] %></div>
+<div class="col"><%= flight[:dep_time] %></div>
+<div class="col"><%= flight[:origin] %></div>
+<div class="col"><%= flight[:arr_time] %></div>
+<div class="col"><%= flight[:destination] %></div>
+<div class="col"><%= flight[:price] %></div>
 
-    <p><a href="/flights/<%= flight[:id] %>"><%= flight[:dep_time] %></a></p>
-    
+<!--#book now button--!>
+<div class="col">
+            <a href="/flights/<%= flight[:id] %>/bookings/new" class="btn btn-primary">Book it!</a></div>
+</div>
+</div>
 <% end %>

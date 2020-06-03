@@ -1,0 +1,80 @@
+<h1>Flight <%= @flight[:flight_num] %></h1>
+
+<div class="container" style="margin-bottom: 200px; margin-top: 25px;">
+<div class="row">
+<div class="col">
+
+<div class="row">
+<h5>Seat selection</h5>
+</div>
+
+<div class="row">
+<div class="col">
+<!--#IF statement de ocupación de asiento...--!>
+<p1>1a</p1>
+</div>
+<div class="col">
+<p1>1b</p1>
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+<p1>2a</p1>
+</div>
+<div class="col">
+<p1>2b</p1>
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+<p1>3a</p1>
+</div>
+<div class="col">
+<p1>3b</p1>
+</div>
+</div>
+
+<div class="row">
+<div class="col">
+<p1>4a</p1>
+</div>
+<div class="col">
+<p1>4b</p1>
+</div>
+</div>
+
+</div>
+<div class="col">
+<p1>placeholder</p1>
+</div>
+</div>
+</div>
+
+
+<!--#De aqui para abajo es lo que sirve de la selección original--!>
+<div class="row">
+<div class="col">
+<form action="/flights/<%= @flight[:id] %>/bookings/create" method="POST">
+  <div class="form-group">
+    <label>Seat selection</label>
+    <select class="form-control" name="seat_chosen">
+      <option value="1a">1a</option>
+      <option value="1b">1b</option>
+      <option value="2a">2a</option>
+      <option value="2b">2b</option>
+      <option value="3a">3a</option>
+      <option value="3b">3b</option>
+      <option value="4a">4a</option>
+      <option value="4b">4b</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Book it!</button>
+</form>
+</div>
+
+<div class="col">
+<p1>placeholder</p1>
+</div>
+</div>
