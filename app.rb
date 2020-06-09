@@ -47,7 +47,8 @@ end
 get "/flights/:id/bookings/new" do
     @flight = flights_table.where(:id => params["id"]).to_a[0]
     #@users_table = users_table
-    #@bookings = bookings_table.where(:flight_id => params["id"]).to_a
+    #watch out here --> you want to send the bookings info from the flight
+    @bookings = bookings_table.where(:flight_id => params["id"]).to_a
     view "new_booking"
 end
 
@@ -64,8 +65,10 @@ post "/flights/:id/bookings/create" do
                        :taken_3b => params["taken_3b"],
                        :taken_4a => params["taken_4a"],
                        :taken_4b => params["taken_4b"])
+
     #@flight = flights_table.where(:id => params["id"]).to_a[0]
     @bookings = bookings_table.where(:flight_id => params["id"]).to_a
+    @flight = flights_table.where(:id => params["id"]).to_a
     view "create_booking"
 end
 
@@ -78,7 +81,7 @@ end
 post "/users/create" do
     users_table.insert(:name => params["name"],
                        :email => params["email"],
-                       :password => params["password"],
+                       :password => BCrypt::Password.create(params["password"]),
                        :credit_number => params["credit_number"],
                        :credit_exp_date => params["credit_exp_date"],
                        :credit_security => params["credit_security"])
@@ -100,7 +103,7 @@ post "/logins/create" do
     if user
         puts user.inspect
         # test the password against the one in the users table
-        if user[:password] == password_entered
+        if BCrypt::Password.new(user[:password]) == password_entered
             session[:user_id] = user[:id]
             view "create_login"
         else
@@ -113,5 +116,8 @@ end
 
 # Logout
 get "/logout" do
+    session[:user_id] = nil
     view "logout"
 end
+
+

@@ -14,6 +14,14 @@ DB.create_table! :flights do
   String :dep_time
   String :arr_time
   String :price
+  Boolean :taken_1a
+  Boolean :taken_1b
+  Boolean :taken_2a
+  Boolean :taken_2b
+  Boolean :taken_3a
+  Boolean :taken_3b
+  Boolean :taken_4a
+  Boolean :taken_4b
   
 end
 DB.create_table! :bookings do
@@ -52,7 +60,14 @@ flights_table.insert(flight_num: "1",
                     date: "June 21",
                     dep_time: "8:00 AM",
                     arr_time: "9:30 AM",
-                    price: "$ 1,200 MXN")
+                    price: "$ 1,200 MXN",
+                    taken_1a: "nil",
+                    taken_1b: "nil",
+                    taken_2a: "nil",
+                    taken_3a: "nil",
+                    taken_3b: "nil",
+                    taken_4a: "nil",
+                    taken_4b: "nil")
                     
 
 flights_table.insert(flight_num: "2",
@@ -61,4 +76,26 @@ flights_table.insert(flight_num: "2",
                     date: "June 21",
                     dep_time: "11:00 AM",
                     arr_time: "12:30 PM",
-                    price: "$ 1,400 MXN")
+                    price: "$ 1,400 MXN",
+                    taken_1a: "nil",
+                    taken_1b: "nil",
+                    taken_2a: "nil",
+                    taken_3a: "nil",
+                    taken_3b: "nil",
+                    taken_4a: "nil",
+                    taken_4b: "nil")
+
+flights_table.insert(flight_num: "3",
+                    origin: "Mexico",
+                    destination: "Monterrey",
+                    date: "June 21",
+                    dep_time: "6:00 PM",
+                    arr_time: "7:30 PM",
+                    price: "$ 1,500 MXN",
+                    taken_1a: "nil",
+                    taken_1b: "nil",
+                    taken_2a: "nil",
+                    taken_3a: "nil",
+                    taken_3b: "nil",
+                    taken_4a: "nil",
+                    taken_4b: "nil")
