@@ -29,6 +29,8 @@ end
 get "/" do
     # before stuff runs
     @flights = flights_table.all
+    results = Geocoder.search("2211 Campus Dr, Evanston, IL 60208")
+@lat_long = results.first.coordinates.join(",")
     #@flight = flights_table.where(:id => params["id"]).to_a[0]
     #@bookings = bookings_table.where(:flight_id => params["id"]).to_a
     #@users_table = users_table
